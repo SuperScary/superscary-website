@@ -1,0 +1,70 @@
+---
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+
+// Filter java entries with 'draft: false' & date before current date
+const publishedJavaEntries = await getCollection("minecraft", ({ data }) => {
+    return !data.draft;
+});
+
+// Sort content entries by publication date
+publishedJavaEntries.sort(function (a, b) {
+    return a.data.orderNumber.valueOf() - b.data.orderNumber.valueOf();
+});
+---
+
+<Layout title="Minecraft Tutorials">
+    <Container>
+        <Sectionhead>
+            <Fragment slot="title">Minecraft Tutorials</Fragment>
+            <Fragment slot="desc">
+                All of the existing Minecraft modding tutorials in one easy to access location.
+            </Fragment>
+        </Sectionhead>
+
+        <main class="mt-16">
+            <ul class="grid gap-16 max-w-4xl mx-auto">
+                {
+                    publishedJavaEntries.map((javaPostEntry, index) => (
+                            <li>
+                                <a href={`/tutorials/minecraft/${javaPostEntry.data.api}/${javaPostEntry.slug}`}>
+                                    <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                                        <Picture
+                                                src={javaPostEntry.data.image.src}
+                                                alt={javaPostEntry.data.image.alt}
+                                                sizes="(max-width: 800px) 100vw, 800px"
+                                                width={800}
+                                                height={600}
+                                                loading={index <= 2 ? "eager" : "lazy"}
+                                                decoding={index <= 2 ? "sync" : "async"}
+                                                class="w-full rounded-md object-cover object-center bg-white"
+                                        />
+                                        <div>
+                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                      {javaPostEntry.data.category}
+                    </span>
+
+                                            <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                                                #{javaPostEntry.data.orderNumber}: {javaPostEntry.data.title}
+                                            </h2>
+
+                                            <div class="flex gap-2 mt-3">
+                      <span class="text-gray-400">
+                        {javaPostEntry.data.author}
+                      </span>
+                                                <span class="text-gray-400">• </span>
+                                                Tutorial #{javaPostEntry.data.orderNumber}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                    ))
+                }
+            </ul>
+        </main>
+    </Container>
+</Layout>

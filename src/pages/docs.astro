@@ -1,0 +1,26 @@
+---
+import Container from "../components/container.astro";
+import Layout from "../layouts/Layout.astro";
+import Sectionhead from "../components/sectionhead.astro";
+---
+<Layout title="Docs">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Docs</Fragment>
+      <Fragment slot="desc">Keeping good documentation is key.</Fragment>
+    </Sectionhead>
+
+    <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+      <h2 class="font-bold text-center text-3xl text-gray-800">
+        (´•︵•`)
+      </h2>
+      <p class="text-lg text-center leading-relaxed text-slate-500">
+        Ironically, there is no documentation to display at this time.<wbr />
+      </p>
+      <p class="text-lg text-center leading-relaxed text-slate-500">
+        Not to worry though, I am working hard to get it up and going.
+      </p>
+    </div>
+
+  </Container>
+</Layout>

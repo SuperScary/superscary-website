@@ -1,0 +1,19 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
+import Mods from "@components/mod_list.astro"
+---
+
+<Layout title="Mods">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Mods</Fragment>
+      <Fragment slot="desc">
+        All the Minecraft addons created by SuperScary.
+      </Fragment>
+    </Sectionhead>
+
+    <Mods />
+  </Container>
+</Layout>

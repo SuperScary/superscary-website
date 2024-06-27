@@ -1,0 +1,88 @@
+---
+import Container from "../../components/container.astro";
+import Layout from "../../layouts/Layout.astro";
+import Sectionhead from "../../components/sectionhead.astro";
+import { Icon } from "astro-icon/components";
+import Link from "../../components/ui/link.astro";
+const { bullet } = Astro.props
+---
+<Layout title="Heavy Inventories">
+  <Container>
+
+    <Sectionhead>
+      <Fragment slot="title">Heavy Inventories</Fragment>
+      <Fragment slot="desc">Add some weight to those items!</Fragment>
+    </Sectionhead>
+
+    <main class="grid lg:grid-cols-1 place-items-center pt-16 pb-8 md:pt-1 md:pb-1">
+      <div class="mt-1 flex place-items-center sm:flex-row gap-5">
+        <Link
+          style="outline"
+          href="https://www.curseforge.com/minecraft/mc-mods/heavy-inventories"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          target="_blank">
+          Download on CurseForge
+        </Link>
+
+        <Link
+          style="outline"
+          href="https://modrinth.com/project/heavy-inventories"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          target="_blank">
+          Download on Modrinth
+        </Link>
+      </div>
+    </main>
+
+    <main>
+      <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+        <h2 class="font-bold text-3xl text-gray-800">
+          What is Heavy Inventories?
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          Heavy Inventories is a Minecraft addon that seamlessly adds a weight mechanic to the game that can be completely
+          configured through JSON files. Any and all items are automagically™ added to the weight files for you. You can also
+          manually create your own!
+        </p>
+      </div>
+
+    </main>
+
+    <main class="grid lg:grid-cols-1 place-items-center pt-16 pb-8 md:pt-1 md:pb-1">
+      <div class="mt-1 flex place-items-center sm:flex-row gap-5">
+        <Link
+          style="outline"
+          href="https://github.com/SuperScary/Heavy-Inventories/issues"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          target="_blank">
+          Issue Tracker
+        </Link>
+
+        <Link
+          size="lg"
+          style="outline"
+          rel="noopener"
+          href="../docs/heavyinventories"
+          class="flex gap-1 items-center justify-center"
+          target="_blank">
+          Read The Docs
+        </Link>
+
+        <Link
+          size="lg"
+          style="outline"
+          rel="noopener"
+          href="https://github.com/SuperScary/Heavy-Inventories"
+          class="flex gap-1 items-center justify-center"
+          target="_blank">
+          <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
+          Source Code
+        </Link>
+      </div>
+    </main>
+
+  </Container>
+</Layout>

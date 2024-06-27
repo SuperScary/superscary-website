@@ -1,0 +1,87 @@
+---
+import Container from "../../components/container.astro";
+import Layout from "../../layouts/Layout.astro";
+import Sectionhead from "../../components/sectionhead.astro";
+import { Icon } from "astro-icon/components";
+import Link from "../../components/ui/link.astro";
+---
+<Layout title="Hot Swap">
+  <Container>
+
+    <Sectionhead>
+      <Fragment slot="title">Hot Swap</Fragment>
+      <Fragment slot="desc">Swap to the right tool, everytime.</Fragment>
+    </Sectionhead>
+
+    <main class="grid lg:grid-cols-1 place-items-center pt-16 pb-8 md:pt-1 md:pb-1">
+      <div class="mt-1 flex place-items-center sm:flex-row gap-5">
+        <Link
+          style="outline"
+          href="https://www.curseforge.com/minecraft/mc-mods/hot-swap"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          target="_blank">
+          Download on CurseForge
+        </Link>
+
+        <Link
+          style="outline"
+          href="https://modrinth.com/project/hotswap"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          target="_blank">
+          Download on Modrinth
+        </Link>
+      </div>
+    </main>
+
+    <main>
+      <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
+        <h2 class="font-bold text-3xl text-gray-800">
+          What is HotSwap?
+        </h2>
+        <p class="text-lg leading-relaxed text-slate-500">
+          HotSwap is an auto swapping tool for players to allow them to automatically swap to the right tool on their hotbar.
+          This lightweight addon does the work for you so you can keep playing worry-free. Just click and watch the magic
+          happen!
+        </p>
+      </div>
+
+    </main>
+
+    <main class="grid lg:grid-cols-1 place-items-center pt-16 pb-8 md:pt-1 md:pb-1">
+      <div class="mt-1 flex place-items-center sm:flex-row gap-5">
+        <Link
+          style="outline"
+          href="https://github.com/SuperScary/HotSwap/issues"
+          class="flex gap-1 items-center justify-center"
+          rel="noopener"
+          target="_blank">
+          Issue Tracker
+        </Link>
+
+        <Link
+          size="lg"
+          style="outline"
+          rel="noopener"
+          href="../docs/hotswap"
+          class="flex gap-1 items-center justify-center"
+          target="_blank">
+          Read The Docs
+        </Link>
+
+        <Link
+          size="lg"
+          style="outline"
+          rel="noopener"
+          href="https://github.com/SuperScary/HotSwap"
+          class="flex gap-1 items-center justify-center"
+          target="_blank">
+          <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
+          Source Code
+        </Link>
+      </div>
+    </main>
+
+  </Container>
+</Layout>
